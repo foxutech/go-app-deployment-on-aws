@@ -1,0 +1,10 @@
+---
+- name: Deploy GO application
+  hosts: localhosst
+  become: yes
+  tasks:
+    - name: Install docker
+      include: docker-install.yml
+
+    - name: deploy docker
+      include: deployment.yml
