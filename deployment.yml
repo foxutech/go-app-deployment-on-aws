@@ -2,6 +2,8 @@
 - name: Build go-app docker image with the docker_image module
   hosts: localhost
   sudo: yes
+  become: true
+  become_user: ubuntu
   tasks:
     - name: upload the site directory to the docker host
       synchronize: src=go-app dest=/tmp
