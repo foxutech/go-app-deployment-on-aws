@@ -1,6 +1,6 @@
 ---
 - name: Deploy GO application
-  hosts: localhosst
+  hosts: localhost
   become: yes
   tasks:
     - name: Install docker
