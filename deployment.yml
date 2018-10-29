@@ -16,8 +16,8 @@
       
     - name: Log into DockerHub
       docker_login:
-         username: motoskia
-         password: motoskiaking
+         username: <<username>>
+         password: <<password>>
 
     - name: build the image
       docker_image:
