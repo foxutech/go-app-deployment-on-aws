@@ -8,8 +8,8 @@
       
     - name: Log into DockerHub
       docker_login:
-         username: {{ username }}
-         password: {{ password }}
+         username: motoskia
+         password: motoskiaking
 
     - name: build the image
       docker_image:
