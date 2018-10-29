@@ -4,8 +4,15 @@
   tasks:
     - name: upload the site directory to the docker host
       synchronize: src=go-app dest=/tmp
-    - install packages
-      command: yum install python-pip -y && pip install docker-py
+    - name: install the latest version of Apache
+      yum:
+        name: python-py
+        state: latest
+        
+    - name: install docker-py
+      pip:
+        name: docker-py
+        state: present
       
     - name: Log into DockerHub
       docker_login:
