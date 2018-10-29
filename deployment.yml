@@ -4,6 +4,8 @@
   tasks:
     - name: upload the site directory to the docker host
       synchronize: src=go-app dest=/tmp
+    - install packages
+      command: yum install python-pip -y && pip install docker-py
       
     - name: Log into DockerHub
       docker_login:
