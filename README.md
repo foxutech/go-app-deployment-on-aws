@@ -1,4 +1,4 @@
-#### Go Application Deploy on AWS using terraform and ansible on Jenkins
+# Go Application Deploy on AWS using terraform and ansible on Jenkins
 
 ## In Linux machine (local):
 1. Create new SSH keyfile if you dont have any using following command,
