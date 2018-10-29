@@ -7,4 +7,4 @@ apt install ansible -y
 curl -fsSL https://get.docker.com | sh
 git clone https://github.com/foxutech/go-app-deployment-on-aws.git
 cd go-app-deployment-on-aws
-ansible-playbook deployment.yml -vvvv >> /home/ubuntu/ansible.txt
+ansible-playbook deployment.yml -vvvv -i localhost >> /home/ubuntu/ansible.txt
