@@ -1,20 +1,29 @@
 ---
 - name: Build go-app docker image with the docker_image module
   hosts: localhost
+  sudo: yes
   tasks:
     - name: upload the site directory to the docker host
       synchronize: src=go-app dest=/tmp
+      
+    - name: Log into DockerHub
+      docker_login:
+         username: {{ username }}
+         password: {{ password }}
 
     - name: build the image
-      docker_image: >
-        name: motoskia/go-app
-        tag: latest
-        path: /tmp/go-app
-        state: present
-                
+      docker_image:
+         name: motoskia/go-app
+         tag: latest
+         path: /tmp/go-app
+         state: present
+         push: yes
+
     - name: run the site in a docker container
-      docker:
-        name: go-app
-        image: motoskia/go-app:latest
-        state: reloaded
-        ports: "8082:8082"
+      docker_container:
+         name: go-app
+         image: motoskia/go-app:latest
+         state: started
+         restart: yes
+         ports:
+          - "8082:8082"
