@@ -10,7 +10,7 @@ variable "instance_type" {
  
 variable "key_path" {
   description = "SSH Public Key path"
-  default = "/root/prabhakar/deploy-nodeapp-on-aws-with-ansible-tf/foxutech.pub"
+  default = "./test.pem.pub"
 }
  
 variable "bootstrap_path" {
