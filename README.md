@@ -12,12 +12,17 @@ $ cp test.pem terraform/
 3. Create execute shell with following commands
 
 yum install epel-release -y
+
 yum install jq -y
+
 cd terraform
+
 terraform init
+
 terraform plan
-terraform destroy -auto-approve
+
 terraform apply -auto-approve
+
 hosts=$(terraform output -json instance_ips | jq .value[0] | sed 's/"//g')
 
 4. Then create the Invoke ansible playbook
